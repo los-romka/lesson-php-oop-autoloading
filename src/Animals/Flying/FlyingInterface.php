@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Animals\Flying;
+namespace App\Animals\Flying;
 
 interface FlyingInterface
 {

@@ -2,21 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Utils;
+namespace App\Utils;
 
-use Animals\Flying\Bat;
-use Animals\Flying\Cock;
-use Animals\Flying\FlyingInterface;
-use Plane;
+use App\Animals\Flying\Bat;
+use App\Animals\Flying\Cock;
+use App\Animals\Flying\FlyingInterface;
+use App\Plane;
 
 class Application
 {
     public function run(): void
     {
-        $dog = new \Animals\Dog();
+        $dog = new \App\Animals\Dog();
         echo PHP_EOL . $dog->say();
 
-        $cat = new \Animals\Cat();
+        $cat = new \App\Animals\Cat();
         echo PHP_EOL . $cat->say();
 
         $cock = new Cock();

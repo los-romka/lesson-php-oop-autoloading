@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace Animals\Flying;
+namespace App\Animals\Flying;
 
-use Animals\Animal;
+use App\Animals\Animal;
 
 class Cock extends Animal implements FlyingInterface
 {

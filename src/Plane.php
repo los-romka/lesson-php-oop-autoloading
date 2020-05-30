@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-class Plane implements \Animals\Flying\FlyingInterface
+namespace App;
+
+class Plane implements \App\Animals\Flying\FlyingInterface
 {
     public function fly(): string
     {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Animals;
+namespace App\Animals;
 
 abstract class Animal implements AnimalInterface
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Animals;
+namespace App\Animals;
 
 class Dog extends Animal
 {
