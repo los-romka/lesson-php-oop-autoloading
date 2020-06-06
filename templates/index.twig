@@ -1,0 +1,15 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+    <ul>
+    {% for animal in animals %}
+        <li>{{ animal.say() }}</li>
+    {% endfor %}
+    </ul>
+    <div>
+        {{ bat.fly() }}
+    </div>
+    <div>
+        {{ plane.fly() }}
+    </div>
+{% endblock %}

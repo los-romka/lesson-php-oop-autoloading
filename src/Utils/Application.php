@@ -11,26 +11,44 @@ use App\Plane;
 
 class Application
 {
-    public function run(): void
+    private \Twig\Environment $twig;
+
+    public function __construct()
     {
-        $dog = new \App\Animals\Dog();
-        echo PHP_EOL . $dog->say();
-
-        $cat = new \App\Animals\Cat();
-        echo PHP_EOL . $cat->say();
-
-        $cock = new Cock();
-        echo PHP_EOL . $cock->say();
-
-        $bat = new Bat();
-        $plane = new Plane();
-
-        $this->testFly($bat);
-        $this->testFly($plane);
+        $this->twig = new \Twig\Environment(
+            new \Twig\Loader\FilesystemLoader([dirname(__DIR__, 2) . '/templates'])
+        );
     }
 
-    private function testFly(FlyingInterface $flying): void
+    public function run(): void
     {
-        echo PHP_EOL . 'test: ' . $flying->fly();
+        $bat = new Bat();
+
+        $animals = [
+            new \App\Animals\Dog(),
+            new \App\Animals\Cat(),
+            new Cock(),
+            $bat
+        ];
+
+        $plane = new Plane();
+
+        $path = explode('?', $_SERVER['REQUEST_URI'] ?? '')[0] ?? null;
+
+        if ($path === '/personal') {
+            echo $this->twig->render('personal.twig', [
+                'name' => 'Roman',
+                'sum' => isset($_GET['a'], $_GET['b']) ? (int)$_GET['a'] + (int)$_GET['b'] : 0,
+            ]);
+        } else {
+            echo $this->twig->render(
+                'index.twig',
+                [
+                    'animals' => $animals,
+                    'bat' => $bat,
+                    'plane' => $plane,
+                ]
+            );
+        }
     }
 }
