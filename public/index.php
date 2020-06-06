@@ -2,7 +2,7 @@
 
 use App\Utils\Application;
 
-require_once dirname(__DIR__) . '/autoload.php';
+require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 $app = new Application();
 $app->run();
