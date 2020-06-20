@@ -35,7 +35,11 @@ class Application
 
         $path = explode('?', $_SERVER['REQUEST_URI'] ?? '')[0] ?? null;
 
-        if ($path === '/personal') {
+        if ($path === '/form') {
+            echo $this->twig->render('form.twig', [
+                'name' => 'Roman',
+            ]);
+        } elseif ($path === '/personal') {
             echo $this->twig->render('personal.twig', [
                 'name' => 'Roman',
                 'sum' => isset($_GET['a'], $_GET['b']) ? (int)$_GET['a'] + (int)$_GET['b'] : 0,
